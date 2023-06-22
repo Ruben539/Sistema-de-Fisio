@@ -73,7 +73,7 @@ while ($data = mysqli_fetch_array($sql)) {
              <td>' . $data['usuario'] . '</td>
              <td>' . $data['created_at'] . '</td>
              <td>
-                <a href="../Reportes/reporte_paciente.php?id=' . $data['id'] . ' " class="btn btn-outline-danger" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td>
+                <a href="../Reports/recibo.php?id=' . $data['id'] . ' " class="btn btn-outline-danger" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td>
              </td>
 
         </tr>';
