@@ -19,16 +19,24 @@ $hoy = date('Y-m-d');
 //exit();
 
 if (empty($desde) && empty($hasta)) {
-    $sql = mysqli_query($conection, "SELECT c.id,u.nombre,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo,fp.descripcion as forma,c.porcentaje,us.nombre as ususuario,c.created_at,s.descripcion as sesion FROM comprobantes c INNER JOIN usuario u ON u.id = c.paciente_id 
-  INNER JOIN estudios e ON e.id = c.estudio_id INNER JOIN metodo_pagos mp ON mp.id = c.metodo_pago_id
-  INNER JOIN sesiones s ON s.id = c.sesion_id INNER JOIN forma_pagos fp ON fp.id = c.forma_pago_id INNER JOIN usuario us ON us.id = c.usuario
-  WHERE c.created_at LIKE '%".$hoy."%' and c.estatus = 1");
+    $sql = mysqli_query($conection, "SELECT c.id,c.porcentaje,c.created_at,c.estatus,u.nombre,u.cedula,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo, fp.descripcion AS forma,s.descripcion as sesion
+    FROM comprobantes c JOIN usuario u on u.id = c.paciente_id
+    JOIN estudios e ON e.id = c.estudio_id
+    JOIN metodo_pagos mp ON mp.id = c.metodo_pago_id
+    JOIN sesiones s ON s.id = c.sesion_id
+    JOIN usuario us ON us.id = c.usuario
+    INNER JOIN forma_pagos fp ON fp.id = c.forma_pago_id
+    where c.created_at LIKE '%".$hoy."%' AND c.estatus = 1");
 } else {
 
-    $sql = mysqli_query($conection, "SELECT c.id,u.nombre,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo,fp.descripcion as forma,c.porcentaje,us.nombre as usuario,c.created_at,s.descripcion as sesion FROM comprobantes c INNER JOIN usuario u ON u.id = c.paciente_id 
-  INNER JOIN estudios e ON e.id = c.estudio_id INNER JOIN metodo_pagos mp ON mp.id = c.metodo_pago_id
-  INNER JOIN sesiones s ON s.id = c.sesion_id INNER JOIN forma_pagos fp ON fp.id = c.forma_pago_id INNER JOIN usuario us ON us.id = c.usuario
-  WHERE c.created_at BETWEEN '".$desde."' AND '".$hasta."' and c.estatus = 1");
+    $sql = mysqli_query($conection, "SELECT c.id,c.porcentaje,c.created_at,c.estatus,u.nombre,u.cedula,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo, fp.descripcion AS forma,s.descripcion as sesion
+    FROM comprobantes c JOIN usuario u on u.id = c.paciente_id
+    JOIN estudios e ON e.id = c.estudio_id
+    JOIN metodo_pagos mp ON mp.id = c.metodo_pago_id
+    JOIN sesiones s ON s.id = c.sesion_id
+    JOIN usuario us ON us.id = c.usuario
+    INNER JOIN forma_pagos fp ON fp.id = c.forma_pago_id
+    where c.created_at BETWEEN '".$desde."' AND '".$hasta."' and c.estatus = 1");
 }
 
 
