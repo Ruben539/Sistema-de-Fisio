@@ -117,13 +117,13 @@ require_once('../includes/admin_header.php');
                              <a href="../View/modificarEstudio.php?id=<?php echo $data['id']; ?>"class="btn btn-outline-info" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px  rgba(0, 0, 0, 0.25);"><i class="fas fa-edit"></i></a>
                           </td>
                       <?php } ?>
-                      <?php if($_SESSION['rol'] == 1 ){ ?>
+                      <?php if( $_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){ ?>
                           <td>
                             <button onclick="EliminarEstudio('<?php echo $data['id']; ?>')"
                             class="btn btn-outline-danger" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px  rgba(0, 0, 0, 0.25);"><i class="fas fa-user-times"></i></button>
                           </td>
                     <?php } ?>
-                    <?php if($_SESSION['rol'] == 2 ){ ?>
+                    <?php if($_SESSION['rol'] == 3 ){ ?>
                       <td>
                         <a href="#" onclick="permisoAuto()" class="btn btn-outline-danger" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px  rgba(0, 0, 0, 0.25);"><i class="fas fa-user-times"></i></a>
                       </td>
