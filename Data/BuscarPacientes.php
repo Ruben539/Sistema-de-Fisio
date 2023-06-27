@@ -13,13 +13,13 @@ if ($cedula && empty($nombre)) {
     $sql = mysqli_query($conection, "SELECT c.id,u.nombre,u.cedula as documento,u.fecha_nac,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo,fp.descripcion as forma,c.porcentaje,us.nombre as usuario,c.created_at,s.descripcion as sesion FROM comprobantes c INNER JOIN usuario u ON u.id = c.paciente_id 
   INNER JOIN estudios e ON e.id = c.estudio_id INNER JOIN metodo_pagos mp ON mp.id = c.metodo_pago_id
   INNER JOIN sesiones s ON s.id = c.sesion_id INNER JOIN forma_pagos fp ON fp.id = c.forma_pago_id INNER JOIN usuario us ON us.id = c.usuario
-  WHERE u.cedula LIKE '".$cedula."';");
+  WHERE u.cedula LIKE '%".$cedula."%'");
 } else {
 
     $sql = mysqli_query($conection, "SELECT c.id,u.nombre,u.cedula as documento,u.fecha_nac,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo,fp.descripcion as forma,c.porcentaje,us.nombre as usuario,c.created_at, s.descripcion as sesion FROM comprobantes c INNER JOIN usuario u ON u.id = c.paciente_id 
   INNER JOIN estudios e ON e.id = c.estudio_id INNER JOIN metodo_pagos mp ON mp.id = c.metodo_pago_id
   INNER JOIN sesiones s ON s.id = c.sesion_id INNER JOIN forma_pagos fp ON fp.id = c.forma_pago_id INNER JOIN usuario us ON us.id = c.usuario
-  WHERE u.nombre LIKE '".$nombre."';");
+  WHERE u.nombre LIKE '%".$nombre."%'");
 }
 
 
