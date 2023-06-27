@@ -22,13 +22,13 @@ if (empty($desde) && empty($hasta)) {
     $sql = mysqli_query($conection, "SELECT c.id,u.nombre,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo,fp.descripcion as forma,c.porcentaje,us.nombre as ususuario,c.created_at,s.descripcion as sesion FROM comprobantes c INNER JOIN usuario u ON u.id = c.paciente_id 
   INNER JOIN estudios e ON e.id = c.estudio_id INNER JOIN metodo_pagos mp ON mp.id = c.metodo_pago_id
   INNER JOIN sesiones s ON s.id = c.sesion_id INNER JOIN forma_pagos fp ON fp.id = c.forma_pago_id INNER JOIN usuario us ON us.id = c.usuario
-  WHERE c.created_at LIKE '".$hoy."'");
+  WHERE c.created_at LIKE '%".$hoy."%' and c.estatus = 1");
 } else {
 
     $sql = mysqli_query($conection, "SELECT c.id,u.nombre,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo,fp.descripcion as forma,c.porcentaje,us.nombre as usuario,c.created_at,s.descripcion as sesion FROM comprobantes c INNER JOIN usuario u ON u.id = c.paciente_id 
   INNER JOIN estudios e ON e.id = c.estudio_id INNER JOIN metodo_pagos mp ON mp.id = c.metodo_pago_id
   INNER JOIN sesiones s ON s.id = c.sesion_id INNER JOIN forma_pagos fp ON fp.id = c.forma_pago_id INNER JOIN usuario us ON us.id = c.usuario
-  WHERE c.created_at BETWEEN '".$desde."' AND '".$hasta."';");
+  WHERE c.created_at BETWEEN '".$desde."' AND '".$hasta."' and c.estatus = 1");
 }
 
 
@@ -61,6 +61,7 @@ $monto = 0;
 
 while ($data = mysqli_fetch_array($sql)) {
     $monto += $data['monto'];
+    $descuento = $data['descuento'];
     echo '<tr>
              <td>' . $data['nombre'] .'</td>
              <td>' . $data['estudio'] . '</td>
@@ -91,7 +92,7 @@ echo
       <td></td>
       <td></td>
       <td></td>
-      <td class="text-center alert alert-success">' . number_format($monto, 0, '.', '.') . '.<b>GS</b></td>
+      <td class="text-center alert alert-success">' . number_format($monto - $descuento, 0, '.', '.') . '.<b>GS</b></td>
       
       
     </tr>

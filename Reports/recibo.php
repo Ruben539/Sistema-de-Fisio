@@ -73,17 +73,16 @@ ob_start();
 		<tr>
 			<td class="logo_factura">
 				<div>
-					<img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/sistemaFisio/assets/img/fisio1.jpg" 
-                    style="width: 100px;
-                    height: 100px;
-                    border: 2px solid #fff;
-                    border-radius: 50%;"
+					<img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/sistemaFisio/img/fisio1.jpg" 
+                    style="width: 150px;
+                    height: 150px;
+                    border: 2px solid #fff;"
                     >
 				</div>
 			</td>
 			<td class="info_empresa">
 				<h1 style="color: green;">R<span style="color: black; font-size: 25px; font-family: 'Courier New', Courier, monospace;">Fisio</span></h1>
-				<h3>Fisioterapia <span style="color: green; font-size: 16px;">&</span> Estetic</h3>
+				<h3>Fisioterapia <span style="color: green; font-size: 16px;">&</span> Estetica</h3>
 				<p>Dirección: Jose Ocampos Lanzoni 680, Asunción</p>
 				<p>Telefono: 021514974</p>
 			</td>
@@ -111,7 +110,7 @@ ob_start();
 						</tr>
 						<tr>
 							<td><label>Nombre: </label> <p> <?php echo $nombre ?></p></td>
-							<td><label>Fecha Nac. : </label> <p> <?php echo $fecha_nac;?></p></td>
+							<td><label>Fecha Nac. : </label> <p> <?php echo $fecha_nac?></p></td>
 							
 						</tr>
 					</table>
@@ -127,8 +126,8 @@ ob_start();
 					
 					<th width="50px">Cant.</th>
 					<th class="textleft">Descripción</th>
-					<th class="textright" width="150px">Precio Unitario.</th>
-					<th class="textright" width="150px"> Descuento</th>
+					<th class="textright" width="200px">Precio Unitario.</th>
+					<th class="textright" width="200px"> Descuento</th>
 				</tr>
 			</thead>
 			<tbody id="detalle_productos">
@@ -137,8 +136,8 @@ ob_start();
 				<tr>
 					<td class="textcenter"><?php echo $cont;?></td>
 					<td><?php echo $estudio;?></td>
-					<td class="textright"><?php echo number_format($monto , 0,'.','.')?> GS;</td>
-					<td class="textright"><?php echo number_format( $descuento, 0,'.','.')?> GS;</td>
+					<td class="textright"><?php echo number_format($monto , 0,'.','.')?> GS</td>
+					<td class="textright"><?php echo number_format($descuento, 0,'.','.')?> GS</td>
 				</tr>
 			
 				
@@ -163,17 +162,16 @@ ob_start();
 		<tr>
 			<td class="logo_factura">
 				<div>
-					<img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/sistemaFisio/assets/img/fisio1.jpg" 
-                    style="width: 100px;
-                    height: 100px;
-                    border: 2px solid #fff;
-                    border-radius: 50%;"
+					<img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/sistemaFisio/img/fisio1.jpg" 
+                    style="width: 150px;
+                    height: 150px;
+                    border: 2px solid #fff;"
                     >
 				</div>
 			</td>
 			<td class="info_empresa">
 			<h1 style="color: green;">R<span style="color: black; font-size: 25px; font-family: 'Courier New', Courier, monospace;">Fisio</span></h1>
-				<h3>Fisioterapia <span style="color: green; font-size: 16px;">&</span> Estetic</h3>
+				<h3>Fisioterapia <span style="color: green; font-size: 16px;">&</span> Estetica</h3>
 				<p>Dirección: Jose Ocampos Lanzoni 680, Asunción</p>
 				<p>Telefono: 021514974</p>
 			</td>
@@ -227,8 +225,8 @@ ob_start();
 				<tr>
 					<td class="textcenter"><?php echo $cont;?></td>
 					<td><?php echo $estudio;?></td>
-					<td class="textright"><?php echo number_format($monto , 0,'.','.')?> GS;</td>
-					<td class="textright"><?php echo number_format( $descuento, 0,'.','.')?> GS;</td>
+					<td class="textright"><?php echo number_format($monto , 0,'.','.')?> GS</td>
+					<td class="textright"><?php echo number_format($descuento, 0,'.','.')?> GS</td>
 				</tr>
 			
 				

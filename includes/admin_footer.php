@@ -73,6 +73,7 @@
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="../js/funciones.js"></script>
 
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

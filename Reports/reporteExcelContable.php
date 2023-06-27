@@ -26,7 +26,7 @@ if (empty($desde) && empty($hasta)) {
     $sql = "SELECT c.id,u.nombre,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo,fp.descripcion as forma,c.porcentaje,us.nombre as ususuario,c.created_at FROM comprobantes c INNER JOIN usuario u ON u.id = c.paciente_id 
   INNER JOIN estudios e ON e.id = c.estudio_id INNER JOIN metodo_pagos mp ON mp.id = c.metodo_pago_id
   INNER JOIN forma_pagos fp ON fp.id = c.forma_pago_id INNER JOIN usuario us ON us.id = c.usuario
-  WHERE c.created_at LIKE '".$hoy."'";
+  WHERE c.created_at LIKE '%".$hoy."%'";
 } else {
 
     $sql = "SELECT c.id,u.nombre,e.descripcion as estudio,c.monto,c.descuento,mp.descripcion as metodo,fp.descripcion as forma,c.porcentaje,us.nombre as usuario,c.created_at FROM comprobantes c INNER JOIN usuario u ON u.id = c.paciente_id 
